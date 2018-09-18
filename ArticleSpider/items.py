@@ -53,6 +53,7 @@ def handle_tag(value):
     return '.'.join(tags)
 
 def return_value(value):
+
     return value
 class JobboleArticleItem(scrapy.Item):
     title = scrapy.Field(
