@@ -10,7 +10,6 @@
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 import os
 import sys
-from django.core.wsgi import get_wsgi_application
 
 
 # DJANGO_PROJECT_PATH="E:\workSpace\py_work_space\ArticleSpider\django_article\django_article"

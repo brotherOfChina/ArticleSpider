@@ -8,7 +8,6 @@ import sys
 
 from scrapy.loader import ItemLoader
 from scrapy.loader.processors import MapCompose, TakeFirst, Join
-from scrapy_djangoitem import DjangoItem
 
 
 # class ArticleSpiderItem(scrapy.Item):
