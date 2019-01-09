@@ -83,21 +83,16 @@ class MysqlPipeline(object):
 
     def process_item(self, item, spider):
         query = self.dbpool.runInteraction(self.do_insert, item)
-        query.addErrback(self.handle_error)
+        query.addErrback(self.handle_error,item,spider)
         return item
     #     处理异常
-    def handle_error(self, failure):
+    def handle_error(self, failure,item,spider):
         print("错误11")
         print(failure)
 
     def do_insert(self, cursor, item):
-        inser_sql = """
-            insert into jobbole_article (title,url,create_date,tags,vote_num,collect_num,comment_num,content,front_image_url,url_id)
-            VALUES (%s,%s, % s, % s, % s, % s, % s, % s, % s,%s)
-        """
-        cursor.execute(inser_sql, (
-            item["title"], item["url"], item["create_date"], item["tag"], item["vote_num"], item["collect_num"],
-            item["comment_num"], item["content"], item["front_image_url"],item["url_id"]))
+        sql,params=item.get_insert_sql()
+        cursor.execute(sql,params)
 class DjangoPipeline(object):
     def process_item(self, item, spider):
         item.save()

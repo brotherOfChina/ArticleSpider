@@ -43,7 +43,7 @@ ROBOTSTXT_OBEY = False
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -84,7 +84,7 @@ project_dir=os.path.abspath(os.path.dirname(__file__))
 IMAGES_STORE=os.path.join(project_dir,'images')
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 #AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
@@ -101,9 +101,15 @@ IMAGES_STORE=os.path.join(project_dir,'images')
 #HTTPCACHE_EXPIRATION_SECS = 0
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
+HTTPERROR_ALLOWED_CODES = [404,400]
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-MYSQL_HOST="45.78.77.47"
+# MYSQL_HOST="45.78.77.47"
+MYSQL_HOST="127.0.0.1"
 MYSQL_DBNAME="article"
 MYSQL_USER="root"
-MYSQL_PASSWORD="123456"
+# MYSQL_PASSWORD="123456"
+MYSQL_PASSWORD="5178019qq"
+
+SQL_TIME_FORMAT="%Y-%m-%d %H:%M:%S"
+SQL_DATE_FORMAT="%Y-%m-%d"
